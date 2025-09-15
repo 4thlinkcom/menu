@@ -28,7 +28,7 @@ generateBtn.addEventListener('click', async () => {
   }
 
   // Mock AI response demo: just echo with a header
-  const aiResponse = `AI-svar (demo)\n----------------\n${prompt}\n\n[Dette er et demo-svar — i en rigtig integration vil du kalde en AI-tjeneste her.]`;
+  const aiResponse = `AI-svar (demo)\\n----------------\\n${prompt}\\n\\n[Dette er et demo-svar — i en rigtig integration vil du kalde en AI-tjeneste her.]`;
   outputEl.textContent = aiResponse;
 
   // If save-next enabled -> POST to /api/memory
@@ -97,7 +97,7 @@ validateBtn.addEventListener('click', async () => {
     const json = await r.json();
     // Per spec: only show in svaret if HTTP 200
     if (json.status === 200) {
-      validationResult.textContent = `✅ ${json.firstLine}\nURL: ${json.url}`;
+      validationResult.textContent = `✅ ${json.firstLine}\\nURL: ${json.url}`;
     } else if (json.status === 404) {
       validationResult.textContent = `❌ 404 — udeladt fra svaret`;
     } else if (json.status === 0) {
