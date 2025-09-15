@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Webform AI Prompt Generator</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Webform AI Prompt Generator</h1>
+
+    <label for="prompt">Søgetekst (Knap)</label>
+    <textarea id="prompt" placeholder="Skriv din prompt her..."></textarea>
+
+    <div class="controls">
+      <button id="generate">Søgetekst → Generer</button>
+
+      <div class="memory">
+        <button id="memory-toggle">Hukommelse ▾</button>
+        <div id="memory-panel" class="panel hidden">
+          <button id="show-memory">Vis alt data fra min hukommelse nu</button>
+          <label class="toggle">
+            <input type="checkbox" id="save-next" />
+            Gem næste svar i hukommelsen
+          </label>
+        </div>
+      </div>
+
+      <div class="link-validate">
+        <input id="validate-url" placeholder="https://example.com" />
+        <button id="validate-btn">Link Validering</button>
+      </div>
+
+      <button id="copy-output">Kopier</button>
+    </div>
+
+    <section>
+      <h2>Output</h2>
+      <pre id="output" class="output"></pre>
+    </section>
+
+    <section id="memory-list-section" class="hidden">
+      <h2>Hukommelse</h2>
+      <ul id="memory-list"></ul>
+    </section>
+
+    <section id="validation-section" class="hidden">
+      <h2>Link Validering Resultat</h2>
+      <pre id="validation-result"></pre>
+      <p class="note">Viser kun succesfulde (HTTP 200) resultater i svaret; 404 udelades.</p>
+      <p class="curl">Eksempel curl: <code>curl -Is [URL] | head -n 1</code></p>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
